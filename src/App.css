@@ -1,0 +1,22 @@
+:root {
+  --primary-color: #000000;
+  --secondary-color: #FFFFFF;
+}
+
+/* Tailwind CSS Custom Classes */
+.bg-primary {
+background-color: var(--primary-color);
+}
+
+.text-primary {
+color: var(--primary-color);
+}
+
+.bg-secondary {
+background-color: var(--secondary-color);
+}
+
+.text-secondary {
+color: var(--secondary-color);
+}
+
