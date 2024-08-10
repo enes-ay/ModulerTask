@@ -2,7 +2,6 @@ import React from 'react';
 import { LuPencil } from "react-icons/lu";
 
 const SideMenu = ({ setPrimaryColor, setSecondaryColor, setFontFamily, isOpen, toggleMenu, sections, setSections }) => {
-
   // Tüm bölümleri gizle/göster
   const toggleAllSections = () => {
     const allHidden = Object.values(sections).every(value => !value); // Tüm bölümler zaten gizli mi?
@@ -34,9 +33,9 @@ const SideMenu = ({ setPrimaryColor, setSecondaryColor, setFontFamily, isOpen, t
           className="fixed top-0 left-0 h-full w-64 bg-gray-800 text-white p-4 transition-transform duration-300 ease-in-out z-40" 
           style={{ transform: isOpen ? 'translateX(0)' : 'translateX(-100%)' }}  
         >
-          <h2 className="text-2xl mb-4">Style Switcher</h2>
+          <h2 className="text-2xl mb-4 font-default">Style Switcher</h2>
           <div className="mb-4">
-            <label className="block mb-2">Text Color</label>
+            <label className="block mb-2 font-default">Text Color</label>
             <input
               type="color"
               onChange={(e) => setPrimaryColor(e.target.value)}
@@ -44,7 +43,7 @@ const SideMenu = ({ setPrimaryColor, setSecondaryColor, setFontFamily, isOpen, t
             />
           </div>
           <div className="mb-4">
-            <label className="block mb-2">Background Color</label>
+            <label className="block mb-2 font-default">Background Color</label>
             <input
               type="color"
               onChange={(e) => setSecondaryColor(e.target.value)}
@@ -52,10 +51,10 @@ const SideMenu = ({ setPrimaryColor, setSecondaryColor, setFontFamily, isOpen, t
             />
           </div>
           <div className="mb-4">
-            <label className="block mb-2">Font Family</label>
+            <label className="block mb-2 font-default">Font Family</label>
             <select
               onChange={(e) => setFontFamily(e.target.value)}
-              className="w-full bg-gray-700 text-white p-2 rounded"
+              className="w-full bg-gray-700 text-white p-2 rounded font-default"
             >
               <option value="sans-serif">Sans Serif</option>
               <option value="serif">Serif</option>
@@ -63,24 +62,24 @@ const SideMenu = ({ setPrimaryColor, setSecondaryColor, setFontFamily, isOpen, t
             </select>
           </div>
           <div className="mb-4">
-            <h3 className="text-xl mb-2">Toggle Sections</h3>
-            <button onClick={() => toggleSection('portfolio')} className="w-full mb-2 bg-gray-700 p-2 rounded">
+            <h3 className="text-xl mb-2 font-default">Toggle Sections</h3>
+            <button onClick={() => toggleSection('portfolio')} className="w-full mb-2 bg-gray-700 p-2 rounded font-default">
               {sections.portfolio ? 'Hide' : 'Show'} Portfolio
             </button>
-            <button onClick={() => toggleSection('about')} className="w-full mb-2 bg-gray-700 p-2 rounded">
+            <button onClick={() => toggleSection('about')} className="w-full mb-2 bg-gray-700 p-2 rounded font-default">
               {sections.about ? 'Hide' : 'Show'} About Us
             </button>
-            <button onClick={() => toggleSection('blog')} className="w-full mb-2 bg-gray-700 p-2 rounded">
+            <button onClick={() => toggleSection('blog')} className="w-full mb-2 bg-gray-700 p-2 rounded font-default">
               {sections.blog ? 'Hide' : 'Show'} Blog
             </button>
-            <button onClick={() => toggleSection('contact')} className="w-full mb-2 bg-gray-700 p-2 rounded">
+            <button onClick={() => toggleSection('contact')} className="w-full mb-2 bg-gray-700 p-2 rounded font-default">
               {sections.contact ? 'Hide' : 'Show'} Contact
             </button>
           </div>
           <div className="mb-4">
             <button 
               onClick={toggleAllSections} 
-              className="w-full bg-red-600 p-2 rounded"
+              className="w-full bg-red-600 p-2 rounded font-default"
             >
               {Object.values(sections).every(value => !value) ? 'Show All' : 'Hide All'}
             </button>

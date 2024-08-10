@@ -19,4 +19,7 @@ background-color: var(--secondary-color);
 .text-secondary {
 color: var(--secondary-color);
 }
+.font-default {
+  font-family: sans-serif; /* Veya istediğiniz varsayılan font ailesi */
+}
 
