@@ -1,22 +1,44 @@
-# Setup
-Node.js and npm are required first
-git clone https://github.com/enes-ay/ModulerTask.git
-cd ModulerTask
-npm run dev
+# Modüler Site Tasarımı
+
+Stil Değiştirici, kullanıcıların web sitesinin görünümünü özelleştirmesine olanak tanıyan dinamik bir özelliktir. Bir yan menü aracılığıyla erişilebilir ve metin rengini, arka plan rengini ve yazı tipini değiştirme seçenekleri sunar. Ayrıca, Kullanıcıların Portföy, Hakkımızda, Blog ve İletişim gibi belirli bölümleri göstermesine veya gizlemesine olanak tanır.
+
+### Nasıl Çalışır
+- Stil Değiştirici, sol tarafta bulunan kalem simgesi düğmesi ile açılıp kapatılabilen bir yan menü aracılığıyla kontrol edilir. Açık olduğunda, menü çeşitli özelleştirme seçenekleri sunar:
+
+- Metin Rengi: Kullanıcılar, web sitesinin ana metin rengini değiştirmek için bir renk seçici kullanabilirler.
+- Arka Plan Rengi: Arka plan rengini değiştirmek için bir renk seçici kullanılır.
+- Yazı Tipi: Kullanıcılar, açılır menüden Sans Serif, Serif ve Monospace yazı tipleri arasında seçim yapabilirler.
+
+
+
+## Setup
+Node.js ve npm'in kurulu olması gerekmektedir
+```bash
+  git clone https://github.com/enes-ay/ModulerTask.git
+```
+```bash
+  cd ModulerTask
+  npm run dev
+```
 ## Kullanılan Teknolojiler
 ### React.js
-React, kullanıcı arayüzleri oluşturmak için en popüler JavaScript kütüphanelerinden biridir. Bu projede React'in tercih edilmesinin başlıca sebeplerinden biri, bileşen (component) tabanlı mimarisi sayesinde modüler ve yeniden kullanılabilir UI bileşenleri oluşturma yeteneğidir. Bu yapı, uygulamanın çeşitli bölümlerini (örneğin portfolyo, hakkımızda, blog ve iletişim) bağımsız bileşenler olarak yönetmeye olanak tanır, bu da kodun bakımını ve genişletilmesini kolaylaştırır.
+- React: Yan menü ve işlevselliği React bileşenleri olarak uygulanmıştır. React’in durum yönetimi (useState) kullanıcı tarafından seçilen stilleri ve bölüm görünürlüğünü kontrol etmek için kullanılır.
 
-- React Component Yapısı: Projede, her ana bölüm (örneğin, "Portfolio", "About Us", "Blog", "Contact") bağımsız bir React bileşeni olarak yapılandırıldı. Bu sayede, her bölüm kendi iç işleyişini ve stilini yönetebilir. Ayrıca, "Style Switcher" gibi kullanıcı etkileşimlerine dayalı bileşenler, React’in state ve props sistemleri kullanılarak dinamik bir şekilde kontrol edilebilir. Bu modüler yaklaşım, uygulamanın her bir parçasının bağımsız olarak geliştirilip test edilebilmesini sağlar.
+- React Component Yapısı: Projede, her ana bölüm (örneğin, "Portfolio", "About", "Blog", "Contact") bağımsız bir React bileşeni olarak yapılandırıldı. Bu sayede, her bölüm kendi iç işleyişini ve stilini yönetebilir. Ayrıca, "Style Switcher" gibi kullanıcı etkileşimlerine dayalı bileşenler, React’in state ve props sistemleri kullanılarak dinamik bir şekilde kontrol edilebilir. Bu modüler yaklaşım, uygulamanın her bir parçasının bağımsız olarak geliştirilip test edilebilmesini sağlar.
 
 ### Tailwind CSS
-Tailwind CSS, projeye hızlı, esnek ve özelleştirilebilir stil yönetimi getiren bir CSS framework’üdür. Tailwind’in utility-first (yardımcı sınıf) yapısı, bileşenlerin stilini inline olarak tanımlamaya ve değiştirmeye olanak tanır. Bu özellik, özellikle "Style Switcher" gibi dinamik stil değişikliklerine izin veren bir projede büyük bir avantaj sağlar.
-
-- Tailwind ile Modülerlik: Tailwind CSS, her bileşenin stilinin, projenin diğer bölümlerinden bağımsız olarak yönetilebilmesine olanak tanır. Bu, her bileşenin kendi CSS sınıflarını barındırmasına gerek kalmadan, stil değişikliklerinin merkezi olarak kontrol edilebilmesini sağlar. Projede kullanılan "Style Switcher" modülü, Tailwind CSS ile kolayca entegre edilerek, kullanıcıların anlık olarak stil ayarlarını değiştirmesine ve sonuçları anında görmesine olanak tanır.
+- Tailwind CSS: Menü ve bileşenleri, temiz ve duyarlı bir tasarım için Tailwind CSS kullanılarak stil verilmiştir.
+### 
 
 #### Stil Yönetimi:
- Tailwind CSS, her bir bileşenin stilini esnek bir şekilde tanımlamaya olanak tanır. Stil değiştirme modülü (Style Switcher), Tailwind’in utility sınıfları ile hızlı bir şekilde entegre edilerek, tüm sayfanın veya belirli bileşenlerin görünümünün dinamik olarak değiştirilmesini sağlar.
+SideMenu bileşeni Stil Değiştirici işlevselliğini yönetir:
 
-#### Durum Yönetimi:
- React'in state yönetimi, bileşenlerin durumlarına göre dinamik olarak render edilmesini sağlar. Bu, sayfanın belirli bölümlerinin (örneğin, portfolyo veya blog) "Style Switcher" üzerinden gizlenmesini veya gösterilmesini kolaylaştırır.
+- Durum Yönetimi: Bileşen, kullanıcı etkileşimlerine göre stilleri ve bölüm görünürlüğünü güncellemek için setPrimaryColor, setSecondaryColor, setFontFamily ve setSections işlevlerini kullanır.
+
+- Menüyü Açma/Kapama: Yan menü, kalem simgesine tıklanarak açılır veya kapanır, bu işlem isOpen durumunu değiştirir.
+
+- Stil Seçimi: Kullanıcılar, menü içindeki giriş alanları ve açılır menüler aracılığıyla metin rengi, arka plan rengi ve yazı tipini değiştirebilirler.
+
+- Bölüm Görünürlüğü: toggleSection işlevi, kullanıcıların bireysel bölümleri göstermesine veya gizlemesine olanak tanır, toggleAllSections ise tüm bölümleri bir anda yönetmek için hızlı bir yol sunar.
+
 
